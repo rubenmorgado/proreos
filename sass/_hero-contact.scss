@@ -1,0 +1,92 @@
+@mixin mq($smallerValue,$biggerValue) {
+  @media (min-width: #{$smallerValue}) and (max-width: $biggerValue) {
+    @content;
+  }
+}
+
+
+html{
+	height: 100%;
+}
+body {
+  font-family: $font-txt;
+  height:100%;
+}
+
+.banner-contact{
+      width:100%;
+      height: 80vh;
+      position: relative;
+      @include mq(0,600px){
+            height: 100%;
+     }
+     @include mq(600px,800px){
+            height: 70%;
+         }
+  .hero-grid{
+    display: grid;
+    width: 90%;
+    margin:0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    position:absolute;
+    top:40%;
+    left:10%;
+      @include mq(0,600px){
+          grid-template-columns: 1fr;
+          height: 100%;
+          max-width: 80%;
+          top:25%;
+          grid-gap: 15px;
+         }
+      @include mq(600px,800px){
+            grid-gap: 1rem;
+         }
+    .slogan{
+        width:100%;
+        padding: 3rem;
+        @include mq(0,600px){
+            width: 100%;
+            padding: 0;
+         }
+        @include mq(600px,800px){
+            padding: 1rem;
+         }
+      h1{
+          font-family: $font-txt;
+          font-weight: 400;
+          font-size:40px;
+          color:$secundary-color;
+          @include mq(0,600px){
+          font-size: 45px;
+         }
+      } 
+    }
+    .PR-info{
+      padding: 3rem 4rem 0 0.5rem;
+      @include mq(0,600px){
+        padding:0;
+      }
+      @include mq(600px,800px){
+        padding: 1rem 2rem 1rem 0;
+      }
+      .pr-info-text{
+          text-align: left;
+          font-family: $font-txt;
+          font-size: $txt-h2;
+          line-height: 1.2;
+          letter-spacing: 1.2px;
+          @include mq(0,600px){
+            font-size: $txt-h3;
+         }
+         @include mq(0,600px){
+            font-size: $txt-h3;
+         }
+         @include mq(600px,800px){
+            font-size: $txt-h3;
+            padding-left: 0;
+         }
+      }
+    }
+  }
+}

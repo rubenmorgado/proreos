@@ -1,0 +1,122 @@
+@mixin mq($smallerValue,$biggerValue) {
+  @media (min-width: #{$smallerValue}) and (max-width: $biggerValue) {
+    @content;
+  }
+}
+
+
+footer{
+	max-width: 100%;
+	position: relative;
+	background-color: $primary-color;
+	.grid-footer{
+		display: grid;
+		width: 100%;
+		grid-gap: 1rem;
+		padding:50px 80px 80px 80px;
+		grid-template-columns: 40% repeat(3, 1fr);
+		@include mq(0,600px){
+            grid-template-columns:1fr;
+            padding: 1rem;
+       }
+        @include mq(600px,800px){
+            grid-template-columns:1fr 1fr;
+            padding: 1rem;
+       }
+       .brand-col{
+       	@include mq(600px,800px){
+            grid-column: 1 / 4;
+            margin:0 auto;
+       }
+		.logo-footer{
+			width: 150px;
+			@include mq(0,600px){
+            margin:0 auto;
+            }
+			img{
+				width: 100%;
+			}
+		 }
+		}
+		.nav-col{
+			padding: 2%;
+			.heading-footer{
+				font-size: $txt-h3;
+				text-transform: uppercase;
+				margin-bottom: 30px;
+				letter-spacing: 1.3px;
+				color:#fff;
+			}
+			.nav-link-col{
+				text-align: left;
+				.nav-link{
+					margin-bottom: 20px;
+					a{
+						font-size: $text-size;
+						text-decoration: none;
+						color:#fff;
+						font-family: $font-txt;
+					}
+				}
+			}
+		}
+		.contact-col{
+			padding: 2%;
+			.heading-footer{
+				font-size: $txt-h3;
+				text-transform: uppercase;
+				margin-bottom: 30px;
+				color:#fff;
+			}
+			.morada{
+				font-size: $text-size;
+				line-height: 1.2;
+				color:#fff;
+				font-family: $font-txt;
+				margin-bottom: 10px;
+				&:nth-child(4){
+					margin-bottom: 30px;
+				}
+			}
+			.telefone{
+				font-size: $text-size;
+				color:#fff;
+				letter-spacing: 1.2px;
+				font-family: $font-txt;
+				margin-bottom: 8px;
+			}
+		}
+		.links-col{
+			.e-mail{
+				text-align: center;
+				padding-bottom: 20px;
+				margin-bottom: 30px;
+				border-bottom:1px solid #fff;
+				a{
+				font-size: 1.8rem;
+				color:#fff;
+				font-family: $font-txt;
+				text-decoration: none;
+			   }
+			}
+			.social-networks{
+				padding: 2%;
+				text-align: center;
+				span{
+					margin-right: 20px;
+					&:nth-child(2){
+						margin:0px;
+				      }  
+					a{
+					  text-decoration: none;
+					  i{
+					  	text-decoration: none;
+					  	font-size: $txt-h3;
+					  	color:#fff;
+					  }
+					}
+				}
+			}
+		}
+	}
+}

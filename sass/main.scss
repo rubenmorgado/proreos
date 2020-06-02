@@ -1,0 +1,32 @@
+//fonts
+$font-txt: 'Manrope', sans-serif;
+//styles
+$primary-color:#471C21;
+$secundary-color:#1E2838;
+
+//txtUnits
+$txt-h1: 2rem;
+$txt-h2: 1.5rem;
+$txt-h3: 1.2rem;
+$text-size: 1rem;
+
+
+*:focus {
+  outline: 0;
+}
+
+@import 'mixin';
+@import 'reset';
+@import 'nav';
+@import 'hero';
+@import 'grid-areas';
+@import 'footer';
+@import 'accordion-AP'; 
+@import 'hero-AP';
+@import 'hero-contact';
+@import 'PRcontact';
+@import 'carrousel-artigos';
+@import 'hero-article';  
+@import 'article-body';
+@import 'navigation';
+@import 'article-cards';

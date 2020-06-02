@@ -1,0 +1,200 @@
+
+@mixin mq($smallerValue,$biggerValue) {
+  @media (min-width: #{$smallerValue}) and (max-width: $biggerValue) {
+    @content;
+  }
+}
+
+
+html{
+	height: 100%;
+}
+body {
+	font-family:$font-txt;
+	height:100%;
+}
+
+.article-s{
+	width:100%;
+	height:85%;
+	overflow-x: hidden;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	  @include mq(0,600px){
+	        height: 70%;
+	     }
+  .main-article{
+	top:50%;
+    transform:translateY(-50%);
+    position:relative;
+    max-width:60%;
+    width:100%;
+    margin:0 auto;
+    line-height: 1.3;
+    .title-article{
+	    h1{
+	      font-family: $font-txt;
+	      font-size:40px;
+	      color:$secundary-color;;
+	      font-weight: 600;
+	      margin-bottom:30px;
+	      text-align: center;
+	      @include mq(0,600px){
+	        font-size: 40px;
+	     }
+	    }
+	  }
+   
+   .subt-article{
+   	padding: 0 5em 0 5em;
+    p{
+      font-size:24px;
+      color:#824047;
+      font-family:$font-txt;
+      font-weight:400;
+      @include mq(0,600px){
+        font-size: 18px;
+     }
+    }
+   }
+  }
+    .data-article{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+      position: relative;
+      width: 100%;
+      height: 25%;
+      margin-top: 3rem;
+      .data-time-article{
+        
+      .data-detail-article{
+        font-size: 20px;
+        font-family: $font-txt;
+        color:$secundary-color;
+        text-transform: uppercase;
+        text-align: left;
+        &:nth-child(2){
+          margin-right: 0;
+        }
+      }
+      .nome-autor-article{
+      font-size: 20px;
+      text-align: left;
+      color:$secundary-color;
+     }
+    }
+      .autor-article{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-image: url("https://www.ecopetit.cat/wpic/mpic/325-3257830_morty-5k-wallpaper-rick-and-morty-profile.jpg");
+        background-size: cover;
+        background-position: center;
+        place-self:end;
+      }
+  }
+
+	.social-buttons {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  margin-top: 20px;
+	  &__button {
+	    margin: 10px 5px 0;
+	  }
+	}
+
+	$social-button-radius: 70px;
+	$social-button-icon-size: 0.4;
+	$social-button-background: #fff;
+	$social-button-active-color: #fff;
+	$social-button-transition-time: 0.3s;
+
+	$social-button-colors: (
+	  "mail": #0072c6,
+	  "facebook": #3b5999,
+	  "linkedin": #0077b5,
+	  "github": #6e5494,
+	  "codepen": #212121,
+	  "steam": #7da10e,
+	  "snapchat":#eec900,
+	  "twitter": #55acee,
+	  "instagram": #e4405f,
+	  "whatsapp": #25d366
+	);
+
+	.social-button {
+	  position: relative;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  outline: none;
+	  width: $social-button-radius;
+	  height: $social-button-radius;
+	  text-decoration: none;
+
+	  &__inner {
+	    position: relative;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    width: calc(100% - 2px);
+	    height: calc(100% - 2px);
+	    border-radius: 100%;
+	    background: $social-button-background;
+	    text-align: center;
+	  }
+
+	  i,
+	  svg {
+	    position: relative;
+	    z-index: 1;
+	    transition: $social-button-transition-time;
+	  }
+
+	  i {
+	    font-size: $social-button-radius * $social-button-icon-size;
+	  }
+
+	  svg {
+	    height: percentage($social-button-icon-size);
+	    width: percentage($social-button-icon-size);
+	  }
+
+	  &::after {
+	    content: "";
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	    display: block;
+	    width: 0;
+	    height: 0;
+	    border-radius: 100%;
+	    transition: $social-button-transition-time;
+	  }
+
+	  &:focus,
+	  &:hover {
+	    color: $social-button-active-color;
+
+	    &::after {
+	      width: 100%;
+	      height: 100%;
+	      margin-left: -50%;
+	    }
+	  }
+
+	  @each $name, $color in $social-button-colors {
+	    &--#{$name} {
+	      color: $color;
+
+	      &::after {
+	        background: $color;
+	      }
+	    }
+	  }
+	}
+
+}
